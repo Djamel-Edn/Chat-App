@@ -1,6 +1,6 @@
     const User = require('../Models/userModel.js');
 
-    const bcrypt = require('bcrypt');
+    const bcrypt = require('bcryptjs');
     const jwt = require("jsonwebtoken")
     const validator = require('validator');
     const dotenv = require('dotenv');
