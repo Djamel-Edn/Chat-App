@@ -17,7 +17,7 @@ const SettingsPage = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await fetch('http://localhost:4000/user/getUser', {
+        const response = await fetch('https://chat-app-fjxy.onrender.com/user/getUser', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -64,7 +64,7 @@ const SettingsPage = () => {
 
   const updateUserData = async (updatedData) => {
     try {
-      const response = await fetch('http://localhost:4000/user/updateProfile', {
+      const response = await fetch('https://chat-app-fjxy.onrender.com/user/updateProfile', {
         method: 'PUT',
         credentials: 'include',
         headers: {

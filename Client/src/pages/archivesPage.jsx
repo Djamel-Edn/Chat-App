@@ -37,7 +37,7 @@ const ArchivesPage = () => {
     const [onlineUsers, setOnlineUsers] = useState([]);
     const [dotMenu, setDotMenu] = useState(false);  
     useEffect(() => {
-        const newSocket = io('http://localhost:4000');
+        const newSocket = io('https://chat-app-fjxy.onrender.com');
         setSocket(newSocket);
         
         newSocket.on('getOnlineUsers', (users) => {
@@ -126,7 +126,7 @@ const ArchivesPage = () => {
         if (!selectedChat || (!newMessage && !files)) { return; }
 
         try {
-            const response = await fetch('http://localhost:4000/message/create', {
+            const response = await fetch('https://chat-app-fjxy.onrender.com/message/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -147,7 +147,7 @@ const ArchivesPage = () => {
     
     const handleDelete = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/chat/delete/${selectedChat._id}`, {
+            const response = await fetch(`https://chat-app-fjxy.onrender.com/chat/delete/${selectedChat._id}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
