@@ -21,7 +21,7 @@ const Login = () => {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:4000/user/${showLogin ? 'login' : 'register'}`, {
+      const response = await fetch(`https://chat-app-fjxy.onrender.com/user/${showLogin ? 'login' : 'register'}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const Login = () => {
     }
   };
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:4000/auth/google'; 
+    window.location.href = 'https://chat-app-fjxy.onrender.com/auth/google'; 
   };
   
   return (

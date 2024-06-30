@@ -24,7 +24,7 @@ const ProfilePage = () => {
       try {
         setLoading(true);
         setuserUsername(localStorage.getItem('username'))
-        const response = await fetch(`http://localhost:4000/user/${usernam}`, {
+        const response = await fetch(`https://chat-app-fjxy.onrender.com/user/${usernam}`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -32,7 +32,7 @@ const ProfilePage = () => {
 
         if (response.status === 401) {
           setLoading(false);
-          return window.location.replace('http://localhost:3000/login');
+          return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
         }
 
         const data = await response.json();
@@ -58,7 +58,7 @@ const ProfilePage = () => {
     try {
      
 
-      const response = await fetch('http://localhost:4000/user/updateProfile', {
+      const response = await fetch('https://chat-app-fjxy.onrender.com/user/updateProfile', {
         method: 'PUT',
         credentials: 'include',
         headers: {
@@ -73,7 +73,7 @@ const ProfilePage = () => {
         }),
       });
       if (response.status === 401) {
-        return window.location.replace('http://localhost:3000/login');
+        return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
       }
 
       const updatedUserData = await response.json();

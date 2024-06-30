@@ -109,7 +109,7 @@ const Chat = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:4000/message/create', {
+            const response = await fetch('https://chat-app-fjxy.onrender.com/message/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -117,7 +117,7 @@ const Chat = () => {
             });
 
             if (response.status === 401) {
-                return window.location.replace('http://localhost:3000/login');
+                return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
             }
 
             const data = await response.json();
@@ -139,7 +139,7 @@ const Chat = () => {
     }, []);
     
     useEffect(() => {
-        const newSocket = io('http://localhost:4000');
+        const newSocket = io('https://chat-app-fjxy.onrender.com');
         setSocket(newSocket);
         
         newSocket.on('getOnlineUsers', (users) => {
@@ -217,7 +217,7 @@ const Chat = () => {
         const getUser = async () => {
             try {
                 setLoading(true);
-                const response = await fetch('http://localhost:4000/user/getUser', {
+                const response = await fetch('https://chat-app-fjxy.onrender.com/user/getUser', {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' },
                     credentials: 'include',
@@ -225,7 +225,7 @@ const Chat = () => {
 
                 if (response.status === 401) {
                     setLoading(false);
-                    return window.location.replace('http://localhost:3000/login');
+                    return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
                 }
 
                 const data = await response.json();
@@ -260,7 +260,7 @@ const Chat = () => {
 
     const handleplus = async () => {
         try {
-            const response = await fetch('http://localhost:4000/chat/create', {
+            const response = await fetch('https://chat-app-fjxy.onrender.com/chat/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -268,7 +268,7 @@ const Chat = () => {
             });
 
             if (response.status === 401) {
-                return window.location.replace('http://localhost:3000/login');
+                return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
             }
             if (response.status === 400) {
                 setSearchQuery('');
@@ -297,7 +297,7 @@ const Chat = () => {
 
     const handlesearch = async () => {
         try {
-            const response = await fetch('http://localhost:4000/user/search', {
+            const response = await fetch('https://chat-app-fjxy.onrender.com/user/search', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -305,7 +305,7 @@ const Chat = () => {
             });
 
             if (response.status === 401) {
-                return window.location.replace('http://localhost:3000/login');
+                return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
             }
             if (response.status === 400) {
                 setSearchQuery('');
@@ -322,14 +322,14 @@ const Chat = () => {
 
     const handleArchive = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/chat/archive/${selectedChat._id}`, {
+            const response = await fetch(`https://chat-app-fjxy.onrender.com/chat/archive/${selectedChat._id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
             });
 
             if (response.status === 401) {
-                return window.location.replace('http://localhost:3000/login');
+                return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
             }
 
             const data = await response.json();
@@ -350,7 +350,7 @@ const Chat = () => {
 
     const handleDelete = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/chat/removeMember`, {
+            const response = await fetch(`https://chat-app-fjxy.onrender.com/chat/removeMember`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -358,7 +358,7 @@ const Chat = () => {
             });
             
             if (response.status === 401) {
-                return window.location.replace('http://localhost:3000/login');
+                return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
             }
             if (response.status === 200) {
                 const data=await response.json()
@@ -380,7 +380,7 @@ const Chat = () => {
     };
     const handleAdd=async()=>{
         try {
-            const response = await fetch(`http://localhost:4000/chat/addMember`, {
+            const response = await fetch(`https://chat-app-fjxy.onrender.com/chat/addMember`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -388,7 +388,7 @@ const Chat = () => {
             });
 
             if (response.status === 401) {
-                return window.location.replace('http://localhost:3000/login');
+                return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
             }
             const data=await response.json()
            setSelectedChat(data)
