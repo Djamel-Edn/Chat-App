@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGODB_URI, {})
 .catch(err => console.error('Error connecting to MongoDB:', err));
 
 app.use(cors({
-  origin: '*',
+  origin: 'https://chat-app-gold-seven.vercel.app',
   methods: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
@@ -63,7 +63,7 @@ app.get('/auth/google/callback',
       httpOnly: true,
       maxAge: 1000000,
     });
-    res.redirect('chat-app-gold-seven.vercel.app/chat');
+    res.redirect('https://chat-app-gold-seven.vercel.app/chat');
   }
 );
 
