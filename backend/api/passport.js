@@ -9,7 +9,7 @@ function addRandom(str){
 passport.use(new GoogleStrategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: "http://localhost:4000/auth/google/callback",
+  callbackURL: "https://chat-app-fjxy.onrender.com/auth/google/callback",
   passReqToCallback: true,
 },
 async (request, accessToken, refreshToken, profile, done) => {
