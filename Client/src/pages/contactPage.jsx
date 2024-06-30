@@ -13,7 +13,7 @@ const ContactPage = () => {
             return;
         }
         try {
-            const response = await fetch('http://localhost:4000/user/sendMail', {
+            const response = await fetch('https://chat-app-fjxy.onrender.com/user/sendMail', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
