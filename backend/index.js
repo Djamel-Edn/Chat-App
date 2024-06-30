@@ -7,6 +7,7 @@ const passport = require('passport');
 const session = require('express-session');
 const jwt = require('jsonwebtoken'); 
 const cookieParser = require('cookie-parser');
+const MongoStore = require('connect-mongo');
 dotenv.config();
 require('./api/passport');
 const usersRoute = require('./Routes/usersRoute');
@@ -19,6 +20,7 @@ const Chat = require('./Models/chatModel');
 
 app.use(bodyParser.json({ limit: '1gb' }));
 app.use(bodyParser.urlencoded({ limit: '1gb', extended: true }));
+mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGODB_URI, {})
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Error connecting to MongoDB:', err));
@@ -30,12 +32,16 @@ app.use(cors({
   credentials: true
 }));
 
-// Express middleware
+
 app.use(express.json());
 app.use(session({
     secret: process.env.MY_SECRET,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      collectionName: 'sessions'
+  })
 }));
 app.use(cookieParser());
 app.use(passport.initialize());
