@@ -101,7 +101,7 @@ const ArchivesPage = () => {
 
                 if (response.status === 401) {
                     setLoading(false);
-                    return window.location.replace('http://localhost:3000/login');
+                    return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
                 }
 
                 const data = await response.json();
@@ -133,7 +133,7 @@ const ArchivesPage = () => {
                 body: JSON.stringify({ text: newMessage, chatId: selectedChat._id, senderUsername: userData.username, files })
             });
             if (response.status === 401) {
-                return window.location.replace('http://localhost:3000/login');
+                return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
             }
             const data = await response.json();
             setNewMessage('');
@@ -154,7 +154,7 @@ const ArchivesPage = () => {
             });
 
             if (response.status === 401) {
-                return window.location.replace('http://localhost:3000/login');
+                return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
             }
 
             if (response.status === 200) {

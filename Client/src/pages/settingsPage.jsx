@@ -25,7 +25,7 @@ const SettingsPage = () => {
 
         if (response.status === 401) {
           setLoading(false);
-          return window.location.replace('http://localhost:3000/login');
+          return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
         }
 
         const data = await response.json();
