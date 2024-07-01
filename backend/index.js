@@ -58,6 +58,9 @@ app.use(passport.initialize());
 app.use('/user', usersRoute);
 app.use('/chat', chatRoute);
 app.use('/message', messageRoute);
+app.get('/',
+  (req, res) => res.send('Server is running.')
+);
 
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['email', 'profile'] })
