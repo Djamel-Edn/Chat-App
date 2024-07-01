@@ -30,6 +30,7 @@ const allowedOrigins = [
   
 ]
 
+app.use(cookieParser());
 app.use(cors({
   origin: 'https://chat-app-gold-seven.vercel.app',
   credentials: true,
@@ -47,7 +48,6 @@ app.use(session({
       collectionName: 'sessions'
   })
 }));
-app.use(cookieParser());
 app.use(passport.initialize());
 app.use('/user', usersRoute);
 app.use('/chat', chatRoute);
