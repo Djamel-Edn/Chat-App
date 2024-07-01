@@ -4,10 +4,10 @@ const LandingPage = () => {
     const headingText = "Let's Connect in Real Time";
     const words = headingText.split(' ');
 
-    // Determine where to add line breaks
+  
     const firstLineWords = words.slice(0, 3).join(' ');
     const secondLineWords = words.slice(3).join(' ');
-
+    console.log(window.location.href);
     return (
         <div className='flex flex-col h-screen'>
             <div className='flex h-full'>
