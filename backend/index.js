@@ -71,6 +71,8 @@ app.get('/auth/google/callback',
     res.cookie("token", token, {
       httpOnly: true,
       maxAge: 1000000,
+      secure: true,
+      sameSite: "none",
     });
     res.redirect('https://chat-app-gold-seven.vercel.app/chat');
   }
@@ -86,7 +88,7 @@ const io = require('socket.io')(server, {
     origin: allowedOrigins,
     methods: ["GET", "POST"],
     credentials: true,
-    secure: true
+  
   }
 });
 
