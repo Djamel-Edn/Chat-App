@@ -27,9 +27,7 @@ mongoose.connect(process.env.MONGODB_URI, {})
 
 const allowedOrigins = [
   'https://chat-app-gold-seven.vercel.app',
-  'https://chat-clk3f3wii-goriocks-projects.vercel.app',
-  'https://chat-app-git-main-goriocks-projects.vercel.app',
-  'http://localhost:3000'
+  'https://chat-app-goriocks-projects.vercel.app',
 ];
 
 app.use(cors({
@@ -76,7 +74,7 @@ app.get('/auth/google/callback',
       httpOnly: true,
       maxAge: 1000000,
     });
-    res.redirect('https://chat-app-gold-seven.vercel.app/chat');
+    res.redirect('https://chat-app-goriocks-projects.vercel.app/chat');
   }
 );
 
