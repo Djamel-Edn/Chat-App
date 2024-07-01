@@ -60,6 +60,7 @@ const Message=require('../Models/messageModel');
         const { email, password } = req.body;
         try {
             const user = await User.findOne({ email });
+            console.log(req.get('origin'))
             if (!user) {
                 return res.status(400).json({ error: "User does not exist" });
             }
