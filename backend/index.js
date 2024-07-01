@@ -25,20 +25,9 @@ mongoose.connect(process.env.MONGODB_URI, {})
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Error connecting to MongoDB:', err));
 
-const allowedOrigins = [
-  'https://chat-app-gold-seven.vercel.app',
-  'https://chat-app-git-main-goriocks-projects.vercel.app'
-];
 
 app.use(cors({
-  origin: function(origin, callback){
-    if(allowedOrigins.indexOf(origin) !== -1 || !origin){
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: 'https://chat-app-gold-seven.vercel.app',
   credentials: true
 }));
 
