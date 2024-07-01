@@ -27,10 +27,7 @@ mongoose.connect(process.env.MONGODB_URI, {})
 
 const allowedOrigins = [
   'https://chat-app-gold-seven.vercel.app',
-  'https://chat-btunv6fd6-goriocks-projects.vercel.app',
-  'https://chat-app-git-main-goriocks-projects.vercel.app',
-  'chat-app-gold-seven.vercel.app'
-  
+  'https://chat-app-git-main-goriocks-projects.vercel.app'
 ];
 
 app.use(cors({
