@@ -227,7 +227,7 @@ const Chat = () => {
                 if (response.status === 401) {
                     setLoading(false);
                     setReturnLog(true)
-                    window.location.href = 'login';
+                   
                 }
 
                 const data = await response.json();
