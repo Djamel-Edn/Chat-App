@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, Navigate } from 'react-router-dom';
 import Plyr from 'plyr';
 import 'plyr/dist/plyr.css';
+import { set } from 'mongoose';
 const OnlineIcon = () => (
     <div style={{
         width: '15px',
@@ -50,6 +51,7 @@ const Chat = () => {
     const [audioFile, setAudioFile] = useState();
     const audioPlayerRef = useRef(null);
     const [uploading,setUploading]=useState(false)
+    const[returnlog,setReturnLog]=useState(false)
    const handleStartRecording = () => {
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices.getUserMedia({ audio: true })
@@ -225,7 +227,7 @@ const Chat = () => {
 
                 if (response.status === 401) {
                     setLoading(false);
-                    console.log('test')
+                    setReturnLog(true)
                     window.location.href = 'login';
                 }
 
@@ -491,7 +493,7 @@ const Chat = () => {
             </div>
         ) :(
        <>
-            
+            {returnlog && <Navigate to='/login' />} 
             <div className="w-full flex gap-2">
                 <div className="w-2/6 h-full flex flex-col gap-2">
                     <div className="bg-white p-4 rounded-2xl flex justify-between items-center gap-4 h-[15%]">
@@ -707,6 +709,7 @@ const Chat = () => {
              )}
         </div>
     );
+    
 };
 
 export default Chat;
