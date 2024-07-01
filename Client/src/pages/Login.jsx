@@ -41,7 +41,7 @@ const Login = () => {
         return;
       }
       localStorage.setItem('user', data);
-      window.location.href = 'http://localhost:3000/chat';
+      window.location.href = 'https://chat-app-gold-seven.vercel.app/chat';
      
     } catch (error) {
       setErrorMsg(error.message);
@@ -95,12 +95,12 @@ const Login = () => {
 </Link>
      </div>
      <div className={`p-2 bg-[#010019]   w-full md:w-1/2 flex flex-col items-center ${showLogin ? 'md:translate-x-full' : 'md:translate-x-0'} transition-transform duration-500 ease-in-out`}>
-     <form onSubmit={handleSubmit} className='gap-10 w-full flex flex-col items-center'>
+     <form onSubmit={handleSubmit} className='gap-6 w-full flex flex-col items-center'>
         <div className='h-10 mt-10  flex items-center gap-8 '>
           <h3 className='text-white text-lg'>Already have an account ?</h3>
           <button className='px-12 py-3 rounded-3xl border border-white  text-white  hover:bg-white transition-colors duration-300'  onClick={toggleView} type='button'>Login</button>
         </div>
-        <div className='flex flex-col w-3/4 ml-10'>
+        <div className='flex flex-col w-3/4 ml-10 mb-2'>
           <h1 className='text-white font-bold text-3xl '>Welcome to ALGChat</h1>
           <h3 className='text-white text-xl ml-1'>Register your account</h3>
         </div>
