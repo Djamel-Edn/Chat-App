@@ -76,7 +76,7 @@ app.get('/auth/google/callback',
       httpOnly: true,
       maxAge: 1000000,
     });
-    res.redirect('https://chat-app-git-main-goriocks-projects.vercel.app/chat');
+    res.redirect('https://chat-app-gold-seven.vercel.app/chat');
   }
 );
 
