@@ -226,7 +226,7 @@ const Chat = () => {
                 if (response.status === 401) {
                     setLoading(false);
                     console.log('test')
-                    window.location.href = 'chat-app-git-main-goriocks-projects.vercel.app/login';
+                    window.location.href = 'login';
                 }
 
                 const data = await response.json();
