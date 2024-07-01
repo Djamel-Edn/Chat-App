@@ -31,13 +31,7 @@ const allowedOrigins = [
 ]
 
 app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: 'https://chat-app-gold-seven.vercel.app',
   credentials: true
 }));
 
