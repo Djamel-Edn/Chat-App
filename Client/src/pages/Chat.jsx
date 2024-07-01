@@ -13,7 +13,7 @@ import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import Plyr from 'plyr';
 import 'plyr/dist/plyr.css';
 const OnlineIcon = () => (
@@ -225,7 +225,7 @@ const Chat = () => {
 
                 if (response.status === 401) {
                     setLoading(false);
-                    return window.location.replace('https://chat-app-gold-seven.vercel.app/login');
+                    Navigate('/login');
                 }
 
                 const data = await response.json();
