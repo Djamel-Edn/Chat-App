@@ -33,7 +33,13 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: '*',
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
@@ -81,7 +87,7 @@ app.get('/auth/google/failure', (req, res) => {
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: '*',
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
     credentials: true
   }
