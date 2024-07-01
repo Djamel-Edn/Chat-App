@@ -32,7 +32,9 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: 'https://chat-app-gold-seven.vercel.app',
-  credentials: true
+  credentials: true,
+  methods:['GET','POST','PUT','DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 app.use(express.json());
