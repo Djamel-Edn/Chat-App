@@ -10,7 +10,8 @@ const LandingPage = () => {
     const secondLineWords = words.slice(3).join(' ');
     useEffect(()=>{
         console.log(window.location.href)
-    })
+        console.log('test')
+    },[])
     return (
         <div className='flex flex-col h-screen'>
             <div className='flex h-full'>
