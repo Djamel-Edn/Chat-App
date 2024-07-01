@@ -225,7 +225,8 @@ const Chat = () => {
 
                 if (response.status === 401) {
                     setLoading(false);
-                    Navigate('/login');
+                    console.log('test')
+                    window.location.href = 'https://chat-app-gold-seven.vercel.app/login';
                 }
 
                 const data = await response.json();
