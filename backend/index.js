@@ -28,13 +28,19 @@ mongoose.connect(process.env.MONGODB_URI, {})
 const allowedOrigins = [
   'https://chat-app-gold-seven.vercel.app',
   'https://chat-clk3f3wii-goriocks-projects.vercel.app',
-  'https://chat-app-git-main-goriocks-projects.vercel.app'
+  'https://chat-app-git-main-goriocks-projects.vercel.app',
+  'http://localhost:3000'
 ];
 
 app.use(cors({
-  origin:'*',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 
 app.use(express.json());
@@ -78,7 +84,7 @@ app.get('/auth/google/failure', (req, res) => {
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: '*',
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
     credentials: true
   }
