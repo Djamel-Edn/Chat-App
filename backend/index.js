@@ -35,7 +35,9 @@ app.use(cors({
   origin: 'https://chat-app-gold-seven.vercel.app',
   credentials: true,
   methods:['GET','POST','PUT','DELETE'],
+  exposedHeaders: ["Set-Cookie"],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  
 }));
 
 app.use(express.json());
@@ -83,7 +85,8 @@ const io = require('socket.io')(server, {
   cors: {
     origin: allowedOrigins,
     methods: ["GET", "POST"],
-    credentials: true
+    credentials: true,
+    secure: true
   }
 });
 
