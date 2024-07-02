@@ -631,35 +631,36 @@ const Chat = () => {
                     <div className="w-full h-[75%] bg-white rounded-2xl" >
                     <div className="overflow-y-scroll overflow-x-hidden h-full" ref={messageContainerRef}>
     <div className="flex flex-col gap-2 h-full">
-        {selectedChat?.messages && selectedChat.messages.map((message) => (
-            <div key={message._id} className="flex flex-col gap-1 p-4 relative mb-6">
-                <div className={`${message.senderUsername === userData.username ? 'flex justify-end items-center ' : 'flex justify-start items-center'} h-12 relative px-10`}>
-                    <div>
-                        <img src={senderimg(message.senderUsername)} alt="pas trouvé" className={`absolute ${message.senderUsername === userData.username ? '-right-1':'-left-1'} bottom-1 h-10 w-10 rounded-full bot-0`} />
-                    </div>
-                    <div className={`px-4 py-2 flex text-white ${message.senderUsername === userData.username ? 'rounded-l-xl rounded-tr-xl bg-[#FF4A09]' : 'rounded-r-xl rounded-tl-xl bg-gray-300'} inline-block ${message.text !== undefined && message.text !== "" ? 'bg-opacity-100':'bg-opacity-0'}`}>
-                        {message.text !== undefined && message.text !== "" ? message.text : message?.files?.map((file, index) => (
-                            <div key={index} className='bg-gray-100 rounded-xl mb-5 p-2'>
-                                <img src={convertBase64ToImage(file)} className="w-16 h-16" alt="pas trouvé" />
-                            </div>
-                        ))}
-                        {message.audioFile && (
-                            <audio ref={audioPlayerRef} controls>
-                                <source src={message.audioFile} type="audio/ogg" />
-                                Your browser does not support the audio element.
-                            </audio>
-                        )}
-                    </div>
-                </div>
-                <div className={`flex items-center w-full ${message.senderUsername === userData.username ? 'justify-end':' justify-start' }`}>
-                    <div>
-                        <span className={`flex ${message.senderUsername === userData.username ? 'justify-end' : 'justify-start'}`}>{new Date(message.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</span>
-                    </div>
-                    
-                    
-                </div>
+    {selectedChat?.messages && selectedChat.messages.map((message) => (
+    <div key={message._id} className="flex flex-col gap-1 p-4 relative mb-6">
+        <div className={`${message.senderUsername === userData.username ? 'flex justify-end items-center ' : 'flex justify-start items-center'} h-12 relative px-10`}>
+            <div>
+                <img src={senderimg(message.senderUsername)} alt="pas trouvé" className={`absolute ${message.senderUsername === userData.username ? '-right-1':'-left-1'} bottom-1 h-10 w-10 rounded-full bot-0`} />
             </div>
-        ))}
+            <div className={`px-4 py-2 flex text-white ${message.senderUsername === userData.username ? 'rounded-l-xl rounded-tr-xl bg-[#FF4A09]' : 'rounded-r-xl rounded-tl-xl bg-gray-300'} inline-block ${message.text !== undefined && message.text !== "" ? 'bg-opacity-100':'bg-opacity-0'}`}>
+                {message.text !== undefined && message.text !== "" ? message.text : message?.files?.map((file, index) => (
+                    <div key={index} className='bg-gray-100 rounded-xl mb-5 p-2'>
+                        <a href={convertBase64ToImage(file)} download={`file_${index}`}>
+                            <img src={convertBase64ToImage(file)} className="w-16 h-16" alt="pas trouvé" />
+                        </a>
+                    </div>
+                ))}
+                {message.audioFile && (
+                    <audio ref={audioPlayerRef} controls>
+                        <source src={message.audioFile} type="audio/ogg" />
+                        Your browser does not support the audio element.
+                    </audio>
+                )}
+            </div>
+        </div>
+        <div className={`flex items-center w-full ${message.senderUsername === userData.username ? 'justify-end':' justify-start' }`}>
+            <div>
+                <span className={`flex ${message.senderUsername === userData.username ? 'justify-end' : 'justify-start'}`}>{new Date(message.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</span>
+            </div>
+        </div>
+    </div>
+))}
+
     </div>
 </div>
 
