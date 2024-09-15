@@ -9,7 +9,7 @@ router.get('/getUser',cookieJwtAuth,getUserdata)
 router.post('/sendMail',sendMail)
 router.get('/logout',(req,res)=>{
     res.clearCookie('token');
-    res.redirect('http://localhost:3000/');
+    res.redirect('https://chat-app-gold-seven.vercel.app/');
 })
 router.post('/search',cookieJwtAuth,Search)
 router.put('/updateProfile',cookieJwtAuth,updateProfile)
