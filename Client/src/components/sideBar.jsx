@@ -48,7 +48,7 @@ const SideBar = ({ fillSettings, fillArchives, fillChat, fillProfile,usernam }) 
                 {showMenu && (
                     <div className='absolute top-[-50px] left-[10px] flex flex-col'>
                         <Link to={`/profile/${usernam}`} onClick={e => setShowMenu(!showMenu)} className='border border-gray-600'>Profile</Link>
-                        <Link to={'http://localhost:4000/user/logout' } onClick={handlelogout}  className='border border-gray-600'>Logout</Link>
+                        <Link to={'https://chat-app-fjxy.onrender.com/user/logout' } onClick={handlelogout}  className='border border-gray-600'>Logout</Link>
                     </div>
                 )}
             </div>
