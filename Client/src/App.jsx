@@ -14,10 +14,8 @@ import SideBar from './components/sideBar';
 function App() {
   const location = useLocation();
 
-  // Array of routes where NavBar should be displayed
   const navBarRoutes = ['/',  '/about', '/blog', '/contact'];
 
-  // Check if the current route is in navBarRoutes array
   const showNavBar = navBarRoutes.includes(location.pathname);
 
   return (
